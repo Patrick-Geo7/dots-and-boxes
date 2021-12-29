@@ -7,3 +7,5 @@
 #define cyan "\e[0;36m"
 #define white "\e[0;37m"
 #define reset "\e[0m"
+#define redB "\e[41m"
+#define blueB "\e[44m"
