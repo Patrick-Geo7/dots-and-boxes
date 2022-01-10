@@ -91,13 +91,72 @@ int Validate_Input(int r1,int r2,int c1,int c2,int n,char a[n][n]){
             if(((a[i][j-1]=='1')||(a[i][j-1]=='2'))&&((a[i][j+1]=='1')||(a[i][j+1]=='2'))&&((a[i-1][j]=='a')||(a[i-1][j]=='b'))&&((a[i+1][j]=='a')||(a[i+1][j]=='b'))&&(a[i][j]=='S')){
                     if(round==1){
                         a[i][j]='A';
+                        flag++;
                     }
-                    else {
-                            a[i][j]='B';
+                    else if(round==2){
+                        a[i][j]='B';
+                        flag++;
+
                     }
-                    flag = 1;
             }
         }
     }
    return flag; }
+
+
+
+int ComputerTurn(int n,char a[n][n]){
+    int i,j;
+    for (i=1;i<n;i+=2){
+        for (j=1;j<n;j+=2){
+            if(((a[i][j]=='S'))){
+                //if the computer founds a move that will close a box he will play it (that means if he found 3 drawn lines around a box he draws the fourth one)
+                if((a[i][j-1]!='s')&&((a[i][j+1]!='s'))&&(a[i-1][j]!='S'))
+                    {
+                    a[i+1][j]='b';
+                    return 1;
+
+                }
+                else if((a[i][j-1]!='s')&&(a[i][j+1]!='s')&&(a[i+1][j]!='S')){
+                    a[i-1][j]='b';
+                    return 1;
+
+                }
+                else if((a[i][j-1]!='s')&&(a[i+1][j]!='S')&&(a[i-1][j]!='S')){
+                    a[i][j+1]='2';
+                    return 1;
+                }
+                else if((a[i+1][j]!='S')&&(a[i-1][j]!='S')&&(a[i][j+1]!='s')){
+                    a[i][j-1]='2';
+                    return 1;
+                }
+            }
+        }
+    }
+    for(i=0;i<n;i++){
+        for(j=0;j<n;j++){
+            if((i%2!=1)||(j%2!=1)){
+                if(a[i][j]=='S'){
+                    a[i][j] = 'b';
+                    return 0;
+                }
+                else if(a[i][j]=='s'){
+                    a[i][j] = '2';
+                    return 0;
+                }
+            }
+        }
+    }
+}
+void resetGrid(int n,char arr[n][n]){
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            if(((i%2)==0)&&((j%2)==0)){arr[i][j] = 'd';}
+            else if((i%2==1)&&(j%2==0)){arr[i][j] = 's';}
+            else {arr[i][j] = 'S';}
+        }
+    }
+}
+
+
 
