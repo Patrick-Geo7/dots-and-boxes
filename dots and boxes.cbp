@@ -31,11 +31,15 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="ahmed.h" />
 		<Unit filename="colors.h" />
+		<Unit filename="function.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="menu.h" />
+		<Unit filename="scanint.h" />
+		<Unit filename="struct.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
