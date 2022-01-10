@@ -1,11 +1,61 @@
 # depslib dependency file v1.0
-1640057107 source:d:\maro\subjects\computer 1\programming\dots and boxes\main.c
+1641359260 source:d:\maro\subjects\computer 1\programming\dots and boxes\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"colors.h"
+	"menu.h"
+	"scanint.h"
+	"struct.h"
+	"function.h"
+
+1640690724 d:\maro\subjects\computer 1\programming\dots and boxes\colors.h
+
+1641358639 d:\maro\subjects\computer 1\programming\dots and boxes\menu.h
+
+1640225716 d:\maro\subjects\computer 1\programming\dots and boxes\scanint.h
+
+1641328133 d:\maro\subjects\computer 1\programming\dots and boxes\struct.h
+
+1640274020 d:\maro\subjects\computer 1\programming\dots and boxes\grid.h
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
+1641359624 d:\maro\subjects\computer 1\programming\dots and boxes\function.h
+	<stdio.h>
+	<stdlib.h>
+
+1641044419 source:d:\maro\subjects\computer 1\programming\dots and boxes\maro.c
 	<stdio.h>
 	<stdlib.h>
 	"colors.h"
 	"menu.h"
+	"scanint.h"
+	"struct.h"
+	"function.h"
+	"string.h"
 
-1640053529 d:\maro\subjects\computer 1\programming\dots and boxes\colors.h
+1641837256 source:c:\users\king fix\desktop\test\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	"colors.h"
+	"menu.h"
+	"scanint.h"
+	"struct.h"
+	"function.h"
 
-1640057240 d:\maro\subjects\computer 1\programming\dots and boxes\menu.h
+1640690724 c:\users\king fix\desktop\test\colors.h
+
+1641837333 c:\users\king fix\desktop\test\menu.h
+
+1640225716 c:\users\king fix\desktop\test\scanint.h
+
+1641825443 c:\users\king fix\desktop\test\struct.h
+
+1641821455 c:\users\king fix\desktop\test\function.h
+	<stdio.h>
+	<stdlib.h>
 
