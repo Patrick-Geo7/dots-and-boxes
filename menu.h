@@ -1,20 +1,21 @@
-void print_menu(){
+int print_menu(){
     int i=0,j;
+    system("cls");
     printf(blue"\n\n\n\t\t\t\t\tWelcome to our game\n\n\t\t\t\t\t  Dots and Boxes\n\n\n\n\n");
-    printf(yellow"\t 1 - new game\n \t 2 - load game\n \t 3 - top ten\n \t 4 - exit\n\n \t choose from 1 to 4 : "reset);
+    printf(yellow"\t 1 - new game\n \t 2 - load game\n \t 3 - top ten\n\n \t choose from 1 to 3 : "reset);
     while (1){
         i = scanint();
-        if((i==1) || (i==2) || (i==3) || (i==4)){
+        if((i==1) || (i==2) || (i==3)){
             break;
         }
         else{
-            printf(red"\t ERROR, please enter a number from 1 to 4 : "reset);
+            printf(red"\t ERROR, please enter a number from 1 to 3 : "reset);
         }
 
     }
     system("cls");
     if(i==1){
-        printf(yellow "\n\n\n\n\n\n\n\n\t 1 - Easy \n \t 2 - Medium \n \t 3 - Hard \n \t 4 - return to the main menu \n\t enter number from 1 to 4 : " reset);
+        printf(yellow "\n\n\n\n\n\n\n\n\t 1 - Easy \n \t 2 - Medium \n\t 3 - return to the main menu \n\t enter number from 1 to 3 : " reset);
         while(1){
             i = scanint();
             if(i==1){
@@ -23,12 +24,12 @@ void print_menu(){
                 while(1){
                     i = scanint();
                     if(i==1){
+                        return 111;
                         //function to play easy against computer
-                        return;
                     }
                     else if(i==2){
-                        //function to play easy against your friend
-                        return;
+                        return 112;
+                        //function to play easy against friend
                     }
                     else{
                         printf(red"\t ERROR, please enter a number from 1 to 2 : "reset);
@@ -42,11 +43,11 @@ void print_menu(){
                     i = scanint();
                     if(i==1){
                         //function to play medium against computer
-                        return;
+                        return 121;
                     }
                     else if(i==2){
                         //function to play medium against your friend
-                        return;
+                        return 122;
                     }
                     else{
                         printf(red"\t ERROR, please enter a number from 1 to 2 : "reset);
@@ -54,28 +55,10 @@ void print_menu(){
                 }
             }
             else if(i==3){
-                printf(yellow"\t 1 - 1 player \n\t 2 - 2 players \n \t please enter a number: "reset);
-                while(1){
-                    i = scanint();
-                    if(i==1){
-                        //function to play hard against computer
-                        return;
-                    }
-                    else if(i==2){
-                        //function to play hard against your friend
-                        return;
-                    }
-                    else{
-                        printf(red"\t ERROR, please enter a number from 1 to 2 : "reset);
-                    }
-                }
-            }
-            else if(i==4){
-                system("cls");
-                print_menu();
+                return 13;
                 }
             else{
-                printf(red"\t ERROR, please enter a number from 1 to 4 : "reset);
+                printf(red"\t ERROR, please enter a number from 1 to 3 : "reset);
             }
         }
     }
@@ -85,19 +68,18 @@ void print_menu(){
             i = scanint();
             if(i==1){
                 //load game one
-                return;
+                return 21;
             }
             else if(i==2){
                 //load game two
-                return;
+                return 22;
             }
             else if(i==3){
                 //load game three
-                return;
+                return 23;
             }
             else if(i==4){
-                system("cls");
-                print_menu();
+                return 24;
             }
             else{
                 printf(red"\t ERROR, please enter a number from 1 to 4 : "reset);
@@ -105,20 +87,16 @@ void print_menu(){
         }
     }
     else if(i==3){
-        printf(yellow "\n\n\n\n\n\n\n\n\n \t the top 10 are\n");
-        printf("\t press enter to return to the main menu:"reset);
-        scanint();
-        system("cls");
-        print_menu();
+        return 3;
 
     }
     else if(i==4){
-        exit(0);
+        return 4;
     }
-    return;
+
 }
 
-void print_the_game(char one[100],int oneScore,int oneMoves,char two[100],int twoScore,int twoMoves,int n,char array[n][n]){
+void print_the_game(int seconds,char one[100],int oneScore,int oneMoves,char two[100],int twoScore,int twoMoves,int n,char array[n][n]){
     int i,j;
     printf("\n\n\n\n\n\n");
     printf("\t\t\t\t   ");
@@ -139,13 +117,19 @@ void print_the_game(char one[100],int oneScore,int oneMoves,char two[100],int tw
             else if(array[i][j]=='s'){printf(" ");}
             else if(array[i][j]=='S'){printf("   ");}
             else if(array[i][j]=='d'){printf("%c",254);}
-            //printf("%c",maro);
+
         }
         printf("\n");
     }
+    int sec,mint,hour;
+    sec = seconds%60;
+    mint = (seconds/60)%60;
+    hour = (seconds/60/60)%60;
+
     printf("\n\n\n\n");
-    printf(blue"player one name : %s \t\t"reset,one);
-    printf(red"player two name : %s"reset,two);
+    printf(yellow"timer  %d:%d:%d \t\t\tfor save enter(0,0,0,0)\nfor undo enter(1,1,1,1)\t\tfor redo enter(2,2,2,2)\t\tfor main menu enter(3,3,3,3)\n\n\n"reset,hour,mint,sec);
+    printf(blue"player one name : %0.10s\t\t"reset,one);
+    printf(red"player two name : %0.10s"reset,two);
     printf("\n");
     printf(blue"player one moves : %d \t\t\t"reset,oneMoves);
     printf(red"player two moves : %d"reset,twoMoves);
@@ -155,4 +139,5 @@ void print_the_game(char one[100],int oneScore,int oneMoves,char two[100],int tw
     printf("\n");
     return;
 }
+
 
